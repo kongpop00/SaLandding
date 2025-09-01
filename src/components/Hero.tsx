@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowRight, TrendingUp, Users, Award, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -51,7 +52,13 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative pt-24 pb-12 min-h-screen flex items-center overflow-hidden">
+    <motion.section 
+      id="hero" 
+      className="relative pt-24 pb-12 min-h-screen flex items-center overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       {/* Background Slider */}
       <div className="absolute inset-0 z-0">
         {slides.map((slide, index) => (
@@ -105,20 +112,46 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-2/3 space-y-8 animate-fade-in-up text-center lg:text-left">
-            <div className="space-y-6">
-              <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg">
+          <motion.div 
+            className="lg:w-2/3 space-y-8 text-center lg:text-left"
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <motion.div 
+              className="space-y-6"
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <motion.h1 
+                className="text-5xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
                 บริการ<span className="text-[#ffc89c]">บัญชี</span>
                 <br />
-                <span className="text-[#f57d21]">มืออาชีพ</span>
-              </h1>
-              <p className="text-xl lg:text-2xl text-white/90 leading-relaxed drop-shadow-md max-w-2xl mx-auto lg:mx-0">
-                ให้คำปรึกษาและจัดทำบัญชีด้วยทีมงานผู้เชี่ยวชาญ 
-                รับประกันความถูกต้อง ทันสมัย และเป็นไปตามกฎหมาย
-              </p>
-            </div>
+                <span className="text-[#f57d21]">ครบวงจร</span>
+              </motion.h1>
+              <motion.p 
+                className="text-xl lg:text-2xl text-white/90 leading-relaxed drop-shadow-md max-w-2xl mx-auto lg:mx-0"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <span className="text-[#ffc89c] font-semibold">ทำบัญชี • เปิดบริษัท • ยื่นภาษี • ปิดงบการเงิน • วางระบบบัญชี • วางแผนภาษี</span>
+                <br />
+                ด้วยทีมงานมืออาชีพที่เข้าใจระบบบัญชีและภาษีอย่างลึกซึ้ง ครบจบในที่เดียว
+              </motion.p>
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+            >
               <button 
                 onClick={scrollToContact}
                 className="bg-gradient-to-r from-[#f57d21] to-[#f15a29] text-white px-10 py-5 rounded-full text-xl font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 backdrop-blur-sm"
@@ -132,10 +165,19 @@ const Hero = () => {
               >
                 ดูบริการ
               </button>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap gap-8 pt-8 justify-center lg:justify-start">
-              <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm p-4 rounded-2xl">
+            <motion.div 
+              className="flex flex-wrap gap-8 pt-8 justify-center lg:justify-start"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+            >
+              <motion.div 
+                className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm p-4 rounded-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
                 <div className="bg-[#f57d21]/80 p-3 rounded-full">
                   <TrendingUp className="w-7 h-7 text-white" />
                 </div>
@@ -143,8 +185,12 @@ const Hero = () => {
                   <p className="font-bold text-white text-2xl">500+</p>
                   <p className="text-white/80">ลูกค้าที่เชื่อใจ</p>
                 </div>
-              </div>
-              <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm p-4 rounded-2xl">
+              </motion.div>
+              <motion.div 
+                className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm p-4 rounded-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
                 <div className="bg-[#f57d21]/80 p-3 rounded-full">
                   <Users className="w-7 h-7 text-white" />
                 </div>
@@ -152,8 +198,12 @@ const Hero = () => {
                   <p className="font-bold text-white text-2xl">15+</p>
                   <p className="text-white/80">ปีประสบการณ์</p>
                 </div>
-              </div>
-              <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm p-4 rounded-2xl">
+              </motion.div>
+              <motion.div 
+                className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm p-4 rounded-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
                 <div className="bg-[#f57d21]/80 p-3 rounded-full">
                   <Award className="w-7 h-7 text-white" />
                 </div>
@@ -161,9 +211,9 @@ const Hero = () => {
                   <p className="font-bold text-white text-2xl">100%</p>
                   <p className="text-white/80">ความพึงพอใจ</p>
                 </div>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
@@ -173,7 +223,7 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

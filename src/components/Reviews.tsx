@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Reviews = () => {
   const reviews = [
@@ -43,22 +44,40 @@ const Reviews = () => {
   };
 
   return (
-    <section id="reviews" className="py-20 bg-white">
+    <motion.section 
+      id="reviews" 
+      className="py-20 bg-white"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             รีวิว<span className="text-[#f57d21]">ลูกค้า</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             ฟังความคิดเห็นจากลูกค้าที่ได้รับบริการจากเรา
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {reviews.map((review, index) => (
-            <div 
+            <motion.div 
               key={index}
               className="bg-gradient-to-br from-[#f3e9d7]/30 to-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
             >
               <Quote className="absolute top-4 right-4 w-8 h-8 text-[#f57d21]/20" />
               
@@ -80,26 +99,34 @@ const Reviews = () => {
               <p className="text-gray-700 leading-relaxed italic">
                 "{review.comment}"
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-[#f57d21] to-[#f15a29] rounded-3xl p-8 lg:p-12 text-white text-center">
+        <motion.div 
+          className="bg-gradient-to-r from-[#f57d21] to-[#f15a29] rounded-3xl p-8 lg:p-12 text-white text-center"
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h3 className="text-2xl lg:text-3xl font-bold mb-4">
             เข้าร่วมกับลูกค้าที่พึงพอใจกว่า 500+ ราย
           </h3>
           <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
             ให้เราเป็นส่วนหนึ่งในความสำเร็จของธุรกิจคุณ
           </p>
-          <button 
+          <motion.button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-white text-[#f57d21] px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             เริ่มต้นกับเราวันนี้
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
