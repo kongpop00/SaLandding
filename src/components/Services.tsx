@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calculator, FileText, PieChart, TrendingUp, Building, ClipboardCheck, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -24,21 +23,21 @@ const Services = () => {
     },
     {
       icon: TrendingUp,
-      title: "ที่ปรึกษาธุรกิจ",
-      description: "คำแนะนำเชิงกลยุทธ์เพื่อการเติบโตของธุรกิจ",
-      features: ["วางแผนทางการเงิน", "ปรับปรุงกระบวนการ", "ลดต้นทุน"]
+      title: "วางแผนการเงินและงบประมาณ",
+      description: "ช่วยติดตามวิเคราะห์ผลประกอบการ วางแผนการจัดทำงบประมาณ",
+      features: ["วิเคราะห์ผลประกอบการ", "จัดทำงบประมาณ", "วางแผนสภาพคล่องทางการเงิน"]
     },
     {
       icon: Building,
-      title: "จดทะเบียนบริษัท",
-      description: "บริการจดทะเบียนจัดตั้งบริษัทและหจก.",
-      features: ["จดทะเบียนบริษัท", "ขอใบอนุญาต", "ดำเนินการครบวงจร"]
+      title: "จดทะเบียนบริษัท พร้อมตรายาง",
+      description: "บริการจดทะเบียนจัดตั้งบริษัทและหจก. พร้อมออกแบบจัดทำตรายาง",
+      features: ["จดทะเบียนบริษัท", "ออกแบบตรายาง", "ดำเนินการครบวงจร"]
     },
     {
       icon: ClipboardCheck,
-      title: "ตรวจสอบบัญชี",
-      description: "ตรวจสอบความถูกต้องของบัญชีและควบคุมภายใน",
-      features: ["ตรวจสอบรายการ", "ประเมินความเสี่ยง", "รายงานผลการตรวจสอบ"]
+      title: "เตรียมเอกสารกู้เงิน",
+      description: "เตรียมเอกสารเพื่อใช้กู้เงินกับทางสถาบันการเงิน",
+      features: ["จัดเตรียมเอกสาร", "วิเคราะห์ความเป็นไปได้", "ประสานงานธนาคาร"]
     }
   ];
 
@@ -62,8 +61,10 @@ const Services = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             บริการ<span className="text-[#f57d21]">ของเรา</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            เราให้บริการครบครันด้านบัญชีและภาษี เพื่อตอบสนองทุกความต้องการของธุรกิจคุณ
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <span className="font-semibold text-[#f57d21]">ไม่ต้องวิ่งหาหลายที่!</span> 
+            <br />
+            จดบริษัท → ทำบัญชี → ส่งงบ → ยื่นภาษี เราจัดการให้ทั้งหมด พร้อมช่วยวางแผนภาษีให้ธุรกิจมีเงินเหลือใช้มากขึ้น
           </p>
         </motion.div>
 
@@ -122,15 +123,23 @@ const Services = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-[#f57d21] mt-1 flex-shrink-0" />
-                  <p className="text-gray-700">ประสบการณ์กว่า 15 ปี ในการให้บริการลูกค้าหลากหลายธุรกิจ</p>
+                  <p className="text-gray-700"><span className="font-semibold">ความถูกต้องและโปร่งใส:</span> ระบบบัญชีมาตรฐาน ตรวจสอบได้ทุกขั้นตอน</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-[#f57d21] mt-1 flex-shrink-0" />
-                  <p className="text-gray-700">ทีมงานที่ผ่านการรับรองและอบรมอย่างต่อเนื่อง</p>
+                  <p className="text-gray-700"><span className="font-semibold">ประหยัดเวลา ประหยัดภาษี:</span> วางแผนภาษีให้ธุรกิจมีเงินเหลือใช้มากขึ้น</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-[#f57d21] mt-1 flex-shrink-0" />
-                  <p className="text-gray-700">ใช้เทคโนโลยีสมัยใหม่ เพื่อความแม่นยำและรวดเร็ว</p>
+                  <p className="text-gray-700"><span className="font-semibold">ทีมงานมืออาชีพ:</span> ผู้สอบบัญชีและผู้เชี่ยวชาญที่ผ่านการรับรอง</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-[#f57d21] mt-1 flex-shrink-0" />
+                  <p className="text-gray-700"><span className="font-semibold">บริการครบวงจรในที่เดียว:</span> จดบริษัท ทำบัญชี ส่งงบ ยื่นภาษี วิเคราะห์และยื่นเอกสารกู้เงิน</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-[#f57d21] mt-1 flex-shrink-0" />
+                  <p className="text-gray-700"><span className="font-semibold">พร้อมเติบโตไปกับคุณ:</span> ให้บริการในระยะยาว พร้อมเป็น "ที่ปรึกษาทางการเงิน" ตลอดการเติบโตของธุรกิจ</p>
                 </div>
               </div>
             </motion.div>

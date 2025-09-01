@@ -5,31 +5,31 @@ const Awards = () => {
   const awards = [
     {
       icon: Trophy,
-      title: "สำนักงานบัญชีดีเด่น",
-      year: "2024",
-      organization: "สมาคมนักบัญชีแห่งประเทศไทย",
-      description: "ได้รับการยกย่องในด้านการให้บริการที่มีคุณภาพ"
+      title: "ประสบการณ์ตรงจากกรมสรรพากร",
+      year: "17 ปี",
+      organization: "นักตรวจสอบภาษีชำนาญการ",
+      description: "ความเชี่ยวชาญด้านภาษีระดับผู้เชี่ยวชาญ"
     },
     {
       icon: Medal,
-      title: "รางวัลบริการลูกค้ายอดเยี่ยม",
-      year: "2023",
-      organization: "สภาวิชาชีพบัญชี",
-      description: "ความพึงพอใจของลูกค้าระดับสูงสุด"
+      title: "แม่นยำ โปร่งใส เชื่อถือได้",
+      year: "100%",
+      organization: "มาตรฐานการทำงาน",
+      description: "ทำงานอย่างเป็นระบบ ตรวจสอบได้ทุกขั้นตอน"
     },
     {
       icon: Star,
-      title: "มาตรฐาน ISO 9001:2015",
-      year: "2022",
-      organization: "องค์กรรับรองมาตรฐาน",
-      description: "การจัดการคุณภาพระดับสากล"
+      title: "บริการครบวงจรในที่เดียว",
+      year: "All-in-One",
+      organization: "One Stop Service",
+      description: "จดบริษัท ทำบัญชี ส่งงบ วางแผนภาษี ยื่นเอกสารกู้เงิน"
     },
     {
       icon: Award,
-      title: "นวัตกรรมดิจิทัลยอดเยี่ยม",
-      year: "2023",
-      organization: "เทคโนโลยีธุรกิจไทย",
-      description: "การนำเทคโนโลยีมาใช้ในการให้บริการ"
+      title: "ที่ปรึกษาทางการเงิน",
+      year: "Long-term",
+      organization: "Partnership",
+      description: "พร้อมเติบโตไปกับคุณตลอดการเติบโตของธุรกิจ"
     }
   ];
 
@@ -58,11 +58,58 @@ const Awards = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-            รางวัล<span className="text-[#f57d21]">ของเรา</span>
+            ทีมงาน<span className="text-[#f57d21]">มืออาชีพ</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            การยอมรับในมาตรฐานการให้บริการและความเป็นเลิศทางวิชาชีพ
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            ดำเนินงานโดยผู้เชี่ยวชาญที่มีประสบการณ์ตรงจากกรมสรรพากร พร้อมทีมบัญชีที่ผ่านการรับรองมาตรฐานสากล
           </p>
+        </motion.div>
+
+        {/* CEO Section */}
+        <motion.div 
+          className="mb-16 bg-gradient-to-r from-[#f3e9d7] to-[#ffc89c]/50 rounded-3xl p-8 lg:p-12"
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex flex-col lg:flex-row items-center gap-8">
+            <motion.div 
+              className="lg:w-1/3 text-center"
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-r from-[#f57d21] to-[#f15a29] rounded-full flex items-center justify-center">
+                <span className="text-white text-4xl font-bold">วย</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">คุณ วิลินรัตน์ ยานยา</h3>
+              <p className="text-[#f57d21] font-semibold">CEO & ผู้ก่อตั้ง</p>
+            </motion.div>
+            <motion.div 
+              className="lg:w-2/3"
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="space-y-4">
+                <div className="bg-white p-4 rounded-2xl">
+                  <h4 className="font-semibold text-gray-800 mb-2">ประสบการณ์</h4>
+                  <p className="text-gray-700">17 ปี ในตำแหน่ง <span className="font-semibold text-[#f57d21]">นักตรวจสอบภาษีชำนาญการ กรมสรรพากร</span></p>
+                  <p className="text-gray-700">10+ ปี ในด้านทำบัญชีและภาษี</p>
+                </div>
+                <div className="bg-white p-4 rounded-2xl">
+                  <h4 className="font-semibold text-gray-800 mb-2">ปรัชญาการทำงาน</h4>
+                  <blockquote className="text-gray-700 italic">
+                    "จัดการบัญชีอย่างมืออาชีพ เพื่อธุรกิจที่มั่นคง เรื่องบัญชี เราเชี่ยวชาญ ทุกงานไม่มีพลาด 
+                    ให้การเงินและบัญชีของคุณเป็นเรื่องง่าย คิดครบ จบเรื่องบัญชีที่เรา"
+                  </blockquote>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">

@@ -61,8 +61,8 @@ const Header = () => {
               <Calculator className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-800">AAA Accounting</h1>
-              <p className="text-sm text-gray-600">สำนักงานบัญชี</p>
+              <h1 className="text-xl font-bold text-gray-800">S.A. Accounting</h1>
+              <p className="text-sm text-gray-600">บริษัท เอส.เอ.การบัญชีและภาษี จำกัด</p>
             </div>
           </div>
 

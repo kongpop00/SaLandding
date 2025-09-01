@@ -1,28 +1,27 @@
-import React from 'react';
-import { Shield, Clock, Users, CheckCircle } from 'lucide-react';
+import { Shield, Users, DollarSign, FileCheck, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const About = () => {
   const features = [
     {
       icon: Shield,
-      title: "ความน่าเชื่อถือ",
-      description: "ดำเนินงานด้วยความซื่อสัตย์และโปร่งใส รับประกันความถูกต้องของงาน"
+      title: "ประสบการณ์ตรงจากกรมสรรพากร",
+      description: "ดำเนินงานโดยนักตรวจสอบภาษีชำนาญการ และทีมบัญชีมืออาชีพ มีประสบการณ์รวมกว่า 17 ปี"
     },
     {
-      icon: Clock,
-      title: "ตรงเวลา",
-      description: "ส่งงานตรงตามกำหนด ไม่เสียโอกาสทางธุรกิจของคุณ"
+      icon: DollarSign,
+      title: "แม่นยำ โปร่งใส เชื่อถือได้",
+      description: "ทำงานอย่างเป็นระบบ ตรวจสอบได้ทุกขั้นตอน พร้อมอธิบายทุกตัวเลขอย่างเข้าใจง่าย"
+    },
+    {
+      icon: FileCheck,
+      title: "บริการครบวงจรในที่เดียว",
+      description: "ตั้งแต่จดบริษัท ทำบัญชี ส่งงบ วางแผนภาษี ไปจนถึงวิเคราะห์และยื่นเอกสารกู้เงิน"
     },
     {
       icon: Users,
-      title: "ทีมมืออาชีพ",
-      description: "นักบัญชีที่ผ่านการรับรองและมีประสบการณ์สูง"
-    },
-    {
-      icon: CheckCircle,
-      title: "มาตรฐานสากล",
-      description: "ปฏิบัติตามมาตรฐานการบัญชีและกฎหมายอย่างเคร่งครัด"
+      title: "ให้คำปรึกษาอย่างจริงใจ",
+      description: "เราไม่เพียงทำงานตามเอกสาร แต่เข้าใจปัญหาและความต้องการของเจ้าของกิจการ พร้อมแนะนำทางออกที่ดีที่สุด"
     }
   ];
 
@@ -44,13 +43,16 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-            เกี่ยวกับ<span className="text-[#f57d21]">เรา</span>
+            <span className="text-[#f57d21]">บริษัท เอส.เอ.การบัญชีและภาษี จำกัด</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
-            ในยุคที่กฎหมายภาษีและการเงินมีการปรับเปลี่ยนอยู่เสมอ การมีทีมบัญชีมืออาชีพที่เข้าใจระบบบัญชีและภาษีอย่างลึกซึ้ง คือสิ่งจำเป็นสำหรับทุกธุรกิจ
+            <span className="font-semibold text-[#f57d21]">ก่อตั้งขึ้นเมื่อวันที่ 1 พฤศจิกายน 2560</span> โดยมีวัตถุประสงค์ประกอบธุรกิจเกี่ยวกับบัญชี การทำบัญชีและการตรวจสอบบัญชี การให้คำปรึกษาด้านภาษี ออกแบบจัดทำตรายางพร้อมจดบริษัท ช่วยติดตามวิเคราะห์ผลประกอบการ การจัดทำงบประมาณและเตรียมเอกสารเพื่อใช้กู้เงินกับทางสถาบันการเงิน รวมไปถึงการวิเคราะห์วางแผนสภาพคล่องทางการเงิน
+          </p>
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed mb-4">
+            <span className="font-semibold">ก่อตั้งโดยผู้เชี่ยวชาญที่มีประสบการณ์ตรงจากกรมสรรพากร</span> และมีความชำนาญในสายงานบัญชีและการวางแผนภาษีมากกว่า 10 ปี
           </p>
           <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            บริการรับทำบัญชีแบบครบวงจรไม่เพียงแค่ช่วยให้ธุรกิจปฏิบัติตามกฎหมายได้ถูกต้อง แต่ยังช่วยวางแผนภาษีและการเงินให้เกิดประสิทธิภาพสูงสุด ตั้งแต่การจดทะเบียนบริษัท ไปจนถึงการจัดทำงบการเงินและยื่นภาษี <span className="text-[#f57d21] font-semibold">ครบ จบในที่เดียว</span>
+            บริษัทจึงมุ่งมั่นที่จะให้บริการที่ <span className="text-[#f57d21] font-semibold">"แม่นยำ โปร่งใส ถูกต้องตามกฎหมาย และเข้าใจง่าย"</span>
           </p>
         </motion.div>
 
@@ -120,13 +122,16 @@ const About = () => {
           viewport={{ once: true }}
         >
           <div className="text-center">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-6">
-              ให้เราดูแลบัญชีของคุณ
+            <h3 className="text-2xl lg:text-3xl font-bold mb-4">
+              คุณ วิลินรัตน์ ยานยา
             </h3>
-            <p className="text-lg lg:text-xl opacity-90 max-w-4xl mx-auto leading-relaxed">
-              ด้วยบริการที่ได้มาตรฐาน ครอบคลุมทุกด้านทั้งบัญชี ภาษี และที่ปรึกษาทางการเงิน 
-              ตั้งแต่เริ่มต้นธุรกิจจนถึงขยายกิจการ พร้อมจดทะเบียนบริษัทดำเนินการให้คุณทุกขั้นตอน
+            <p className="text-lg font-medium mb-6 opacity-90">
+              CEO เอส.เอ.การบัญชีและภาษี | ประสบการณ์ 17 ปี ในตำแหน่ง นักตรวจสอบภาษีชำนาญการ กรมสรรพากร
             </p>
+            <blockquote className="text-lg lg:text-xl opacity-90 max-w-4xl mx-auto leading-relaxed italic border-l-4 border-white/30 pl-6">
+              "จัดการบัญชีอย่างมืออาชีพ เพื่อธุรกิจที่มั่นคง เรื่องบัญชี เราเชี่ยวชาญ ทุกงานไม่มีพลาด 
+              ให้การเงินและบัญชีของคุณเป็นเรื่องง่าย คิดครบ จบเรื่องบัญชีที่เรา"
+            </blockquote>
           </div>
         </motion.div>
       </div>
