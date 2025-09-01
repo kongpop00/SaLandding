@@ -15,38 +15,19 @@ const Header = () => {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
+    
     if (element) {
-      const headerOffset = 80; // ความสูงของ header + padding
+      const headerOffset = 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      // ใช้ custom smooth scroll ที่ช้าและนุ่มกว่า
-      const startPosition = window.pageYOffset;
-      const distance = offsetPosition - startPosition;
-      const duration = Math.min(Math.abs(distance) * 2.5, 3000); // ใช้เวลานานขึ้น, สูงสุด 3 วินาที
-      let start: number | null = null;
-
-      function step(timestamp: number) {
-        if (!start) start = timestamp;
-        const progress = timestamp - start;
-        const percentage = Math.min(progress / duration, 1);
-        
-        // ใช้ easing function แบบ ease-in-out ที่นุ่มนวล
-        const easeInOutCubic = percentage < 0.5 
-          ? 4 * percentage * percentage * percentage 
-          : 1 - Math.pow(-2 * percentage + 2, 3) / 2;
-        
-        window.scrollTo(0, startPosition + (distance * easeInOutCubic));
-        
-        if (progress < duration) {
-          window.requestAnimationFrame(step);
-        }
-      }
+      // ใช้ modern scroll API
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
       
-      window.requestAnimationFrame(step);
       setIsMenuOpen(false);
-      
-      // เอา subtle animation ออกเพื่อไม่ให้รบกวน
     }
   };
 

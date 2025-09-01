@@ -1,6 +1,39 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ArrowRight, TrendingUp, Users, Award, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+
+// Simple counter that works reliably
+const AnimatedCounter = ({ target, duration = 2000, delay = 0 }: { target: number; duration?: number; delay?: number }) => {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const countRef = useRef<HTMLSpanElement>(null);
+  const inView = useInView(countRef, { once: true });
+
+  useEffect(() => {
+    if (inView && !started) {
+      setStarted(true);
+      
+      setTimeout(() => {
+        const increment = target / (duration / 50); // อัพเดตทุก 50ms
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            setCount(target);
+            clearInterval(timer);
+          } else {
+            setCount(Math.floor(current));
+          }
+        }, 50);
+        
+        return () => clearInterval(timer);
+      }, delay);
+    }
+  }, [inView, started, target, duration, delay]);
+
+  return <span ref={countRef}>{count}</span>;
+};
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -182,7 +215,9 @@ const Hero = () => {
                   <TrendingUp className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <p className="font-bold text-white text-2xl">500+</p>
+                  <p className="font-bold text-white text-2xl">
+                    <AnimatedCounter target={500} duration={2500} delay={1500} />+
+                  </p>
                   <p className="text-white/80">ลูกค้าที่เชื่อใจ</p>
                 </div>
               </motion.div>
@@ -195,7 +230,9 @@ const Hero = () => {
                   <Users className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <p className="font-bold text-white text-2xl">15+</p>
+                  <p className="font-bold text-white text-2xl">
+                    <AnimatedCounter target={15} duration={2000} delay={1700} />+
+                  </p>
                   <p className="text-white/80">ปีประสบการณ์</p>
                 </div>
               </motion.div>
@@ -208,7 +245,9 @@ const Hero = () => {
                   <Award className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <p className="font-bold text-white text-2xl">100%</p>
+                  <p className="font-bold text-white text-2xl">
+                    <AnimatedCounter target={100} duration={2500} delay={1900} />%
+                  </p>
                   <p className="text-white/80">ความพึงพอใจ</p>
                 </div>
               </motion.div>

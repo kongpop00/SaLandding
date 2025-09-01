@@ -1,15 +1,48 @@
-import React from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Building2, Truck, ShoppingBag, Utensils, Heart, Cog } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+
+// Simple counter that works reliably
+const AnimatedCounter = ({ target, duration = 2000, delay = 0 }: { target: number; duration?: number; delay?: number }) => {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const countRef = useRef<HTMLSpanElement>(null);
+  const inView = useInView(countRef, { once: true });
+
+  useEffect(() => {
+    if (inView && !started) {
+      setStarted(true);
+      
+      setTimeout(() => {
+        const increment = target / (duration / 50); // อัพเดตทุก 50ms
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            setCount(target);
+            clearInterval(timer);
+          } else {
+            setCount(Math.floor(current));
+          }
+        }, 50);
+        
+        return () => clearInterval(timer);
+      }, delay);
+    }
+  }, [inView, started, target, duration, delay]);
+
+  return <span ref={countRef}>{count}</span>;
+};
 
 const Clients = () => {
   const clientTypes = [
-    { icon: Building2, name: "บริษัท/องค์กร", count: "150+" },
-    { icon: Truck, name: "ขนส่ง/โลจิสติกส์", count: "80+" },
-    { icon: ShoppingBag, name: "ร้านค้า/ค้าปลีก", count: "120+" },
-    { icon: Utensils, name: "ร้านอาหार", count: "90+" },
-    { icon: Heart, name: "บริการสุขภาพ", count: "45+" },
-    { icon: Cog, name: "ผลิตและบริการ", count: "110+" }
+    { icon: Building2, name: "บริษัท/องค์กร", count: "150+", countNumber: 150 },
+    { icon: Truck, name: "ขนส่ง/โลจิสติกส์", count: "80+", countNumber: 80 },
+    { icon: ShoppingBag, name: "ร้านค้า/ค้าปลีก", count: "120+", countNumber: 120 },
+    { icon: Utensils, name: "ร้านอาหาร", count: "90+", countNumber: 90 },
+    { icon: Heart, name: "บริการสุขภาพ", count: "45+", countNumber: 45 },
+    { icon: Cog, name: "ผลิตและบริการ", count: "110+", countNumber: 110 }
   ];
 
   return (
@@ -51,7 +84,9 @@ const Clients = () => {
               <div className="bg-gradient-to-r from-[#f57d21] to-[#f15a29] p-4 rounded-full w-fit mx-auto mb-4 group-hover:shadow-lg transition-shadow duration-300">
                 <client.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-bold text-[#f15a29] text-2xl mb-1">{client.count}</h3>
+              <h3 className="font-bold text-[#f15a29] text-2xl mb-1">
+                <AnimatedCounter target={client.countNumber} duration={2500} delay={500 + index * 100} />+
+              </h3>
               <p className="text-gray-600 text-sm font-medium">{client.name}</p>
             </motion.div>
           ))}
@@ -87,7 +122,9 @@ const Clients = () => {
                   transition={{ duration: 0.5, delay: 1.0 }}
                   viewport={{ once: true }}
                 >
-                  <p className="text-3xl font-bold text-[#f57d21]">500+</p>
+                  <p className="text-3xl font-bold text-[#f57d21]">
+                    <AnimatedCounter target={500} duration={3000} delay={1200} />+
+                  </p>
                   <p className="text-gray-600">ลูกค้าปัจจุบัน</p>
                 </motion.div>
                 <motion.div 
@@ -97,7 +134,9 @@ const Clients = () => {
                   transition={{ duration: 0.5, delay: 1.1 }}
                   viewport={{ once: true }}
                 >
-                  <p className="text-3xl font-bold text-[#f57d21]">98%</p>
+                  <p className="text-3xl font-bold text-[#f57d21]">
+                    <AnimatedCounter target={98} duration={3000} delay={1300} />%
+                  </p>
                   <p className="text-gray-600">อัตราการกลับมาใช้บริการ</p>
                 </motion.div>
               </div>

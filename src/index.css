@@ -99,7 +99,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* เพื่อไม่ให้ header บังเนื้อหา */
+  scroll-padding-top: 100px; /* เพื่อไม่ให้ header บังเนื้อหา */
 }
 
 /* Enhanced smooth scrolling */
@@ -115,13 +115,6 @@ html {
   
   html:focus-within {
     scroll-behavior: smooth;
-  }
-}
-
-/* Override default scroll speed */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: auto; /* ปิด default เพื่อใช้ custom scroll แทน */
   }
 }
 
