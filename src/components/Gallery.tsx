@@ -117,6 +117,15 @@ const Gallery = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
                 onClick={() => openLightbox(index)}
+                role="button"
+                tabIndex={0}
+                aria-label={`ดูรูปภาพ ${image.title}`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(index);
+                  }
+                }}
               >
                 <div className="aspect-square overflow-hidden">
                   <img
@@ -154,6 +163,10 @@ const Gallery = () => {
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
               onClick={closeLightbox}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="lightbox-title"
+              aria-describedby="lightbox-description"
             >
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -165,7 +178,8 @@ const Gallery = () => {
                 {/* Close Button */}
                 <button
                   onClick={closeLightbox}
-                  className="absolute top-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors duration-200"
+                  aria-label="ปิดรูปภาพ"
+                  className="absolute top-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -175,13 +189,15 @@ const Gallery = () => {
                   <>
                     <button
                       onClick={prevSlide}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors duration-200"
+                      aria-label="รูปก่อนหน้า"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button
                       onClick={nextSlide}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors duration-200"
+                      aria-label="รูปถัดไป"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
                     >
                       <ChevronRight className="w-6 h-6" />
                     </button>
@@ -199,10 +215,10 @@ const Gallery = () => {
 
                 {/* Image Info */}
                 <div className="p-6 bg-white">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                  <h3 id="lightbox-title" className="text-2xl font-bold text-gray-800 mb-2">
                     {galleryImages[currentSlide]?.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p id="lightbox-description" className="text-gray-600 leading-relaxed">
                     {galleryImages[currentSlide]?.description}
                   </p>
                 </div>

@@ -115,25 +115,30 @@ const Hero = () => {
       {/* Slider Controls */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 p-3 rounded-full transition-all duration-200 group"
+        aria-label="ดูรูปก่อนหน้า"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 p-3 rounded-full transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-white/50"
       >
         <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 p-3 rounded-full transition-all duration-200 group"
+        aria-label="ดูรูปถัดไป"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 p-3 rounded-full transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-white/50"
       >
         <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" />
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3" role="tablist" aria-label="สไลด์รูปภาพ">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            aria-label={`ไปยังสไลด์ที่ ${index + 1}`}
+            aria-pressed={index === currentSlide}
+            role="tab"
+            className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 ${
               index === currentSlide 
                 ? 'bg-white scale-125' 
                 : 'bg-white/50 hover:bg-white/75'
@@ -187,14 +192,16 @@ const Hero = () => {
             >
               <button 
                 onClick={scrollToContact}
-                className="bg-gradient-to-r from-[#f57d21] to-[#f15a29] text-white px-10 py-5 rounded-full text-xl font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 backdrop-blur-sm"
+                aria-label="ติดต่อเพื่อปรึกษาฟรี"
+                className="bg-gradient-to-r from-[#f57d21] to-[#f15a29] text-white px-10 py-5 rounded-full text-xl font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/50"
               >
                 <span>ปรึกษาฟรี</span>
                 <ArrowRight className="w-6 h-6" />
               </button>
               <button 
                 onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-white text-white px-10 py-5 rounded-full text-xl font-semibold hover:bg-white hover:text-[#f57d21] transition-all duration-300 backdrop-blur-sm"
+                aria-label="ดูรายละเอียดบริการทั้งหมด"
+                className="border-2 border-white text-white px-10 py-5 rounded-full text-xl font-semibold hover:bg-white hover:text-[#f57d21] transition-all duration-300 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/50"
               >
                 ดูบริการ
               </button>

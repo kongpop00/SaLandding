@@ -106,63 +106,80 @@ const Contact = () => {
               ส่งข้อความหาเรา
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" role="form" aria-label="ฟอร์มติดต่อ">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">ชื่อ-นามสกุล</label>
+                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">ชื่อ-นามสกุล</label>
                   <input 
+                    id="name"
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200"
+                    aria-required="true"
+                    aria-describedby="name-help"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200 focus:outline-none"
                     required
                   />
+                  <div id="name-help" className="sr-only">กรุณากรอกชื่อและนามสกุลของคุณ</div>
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">อีเมล</label>
+                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2">อีเมล</label>
                   <input 
+                    id="email"
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200"
+                    aria-required="true"
+                    aria-describedby="email-help"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200 focus:outline-none"
                     required
                   />
+                  <div id="email-help" className="sr-only">กรุณากรอกที่อยู่อีเมลที่ถูกต้อง</div>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">เบอร์โทรศัพท์</label>
+                  <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">เบอร์โทรศัพท์</label>
                   <input 
+                    id="phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200"
+                    aria-required="true"
+                    aria-describedby="phone-help"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200 focus:outline-none"
                     required
                   />
+                  <div id="phone-help" className="sr-only">กรุณากรอกเบอร์โทรศัพท์ที่สามารถติดต่อได้</div>
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-medium mb-2">บริษัท/ร้าน</label>
+                  <label htmlFor="company" className="block text-gray-700 font-medium mb-2">บริษัท/ร้าน</label>
                   <input 
+                    id="company"
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200"
+                    aria-describedby="company-help"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200 focus:outline-none"
                   />
+                  <div id="company-help" className="sr-only">ชื่อบริษัทหรือร้านค้าของคุณ (ไม่จำเป็น)</div>
                 </div>
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">บริการที่สนใจ</label>
+                <label htmlFor="service" className="block text-gray-700 font-medium mb-2">บริการที่สนใจ</label>
                 <select 
+                  id="service"
                   name="service"
                   value={formData.service}
                   onChange={handleInputChange}
-                  className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200"
+                  aria-describedby="service-help"
+                  className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200 focus:outline-none"
                 >
                   <option value="">เลือกบริการ</option>
                   <option value="accounting">จัดทำบัญชี</option>
@@ -171,6 +188,7 @@ const Contact = () => {
                   <option value="audit">ตรวจสอบบัญชี</option>
                   <option value="registration">จดทะเบียนบริษัท</option>
                 </select>
+                <div id="service-help" className="sr-only">เลือกบริการที่คุณสนใจ</div>
               </div>
 
               <div>
