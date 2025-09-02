@@ -94,10 +94,6 @@ const Services = () => {
                   </div>
                 ))}
               </div>
-
-              <button className="mt-6 w-full bg-[#f3e9d7] hover:bg-[#ffc89c] text-[#f15a29] font-semibold py-3 rounded-xl transition-colors duration-200">
-                เรียนรู้เพิ่มเติม
-              </button>
             </motion.div>
           ))}
         </div>
