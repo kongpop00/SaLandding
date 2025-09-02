@@ -78,6 +78,11 @@ const Header = () => {
               FAQ
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#f57d21] group-hover:w-full transition-all duration-300"></span>
             </button>
+            <button onClick={() => scrollToSection('gallery')} 
+                    className="text-gray-700 hover:text-[#f57d21] transition-all duration-300 relative group">
+              แกลเลอรี่
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#f57d21] group-hover:w-full transition-all duration-300"></span>
+            </button>
             <button onClick={() => scrollToSection('contact')} 
                     className="bg-gradient-to-r from-[#f57d21] to-[#f15a29] text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 hover:from-[#f15a29] hover:to-[#f57d21]">
               ติดต่อเรา
@@ -118,6 +123,10 @@ const Header = () => {
               <button onClick={() => scrollToSection('faq')} 
                       className="text-left text-gray-700 hover:text-[#f57d21] transition-all duration-300 hover:translate-x-2 hover:font-medium">
                 FAQ
+              </button>
+              <button onClick={() => scrollToSection('gallery')} 
+                      className="text-left text-gray-700 hover:text-[#f57d21] transition-all duration-300 hover:translate-x-2 hover:font-medium">
+                แกลเลอรี่
               </button>
               <button onClick={() => scrollToSection('contact')} 
                       className="text-left bg-gradient-to-r from-[#f57d21] to-[#f15a29] text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-fit">
