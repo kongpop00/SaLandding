@@ -82,7 +82,7 @@ const Awards = () => {
               viewport={{ once: true }}
             >
               <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-r from-[#f57d21] to-[#f15a29] rounded-full flex items-center justify-center">
-                <span className="text-white text-4xl font-bold">วย</span>
+                <span className="text-white text-4xl font-bold">ว</span>
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">คุณ วิลินรัตน์ ยานยา</h3>
               <p className="text-[#f57d21] font-semibold">CEO & ผู้ก่อตั้ง</p>
