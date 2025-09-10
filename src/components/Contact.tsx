@@ -206,10 +206,15 @@ const Contact = () => {
 
               <button 
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#f57d21] to-[#f15a29] text-white py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-[#f57d21] to-[#f15a29] text-white py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 relative overflow-hidden group focus:outline-none focus:ring-4 focus:ring-[#f57d21]/30 focus:scale-105"
               >
-                <Send className="w-5 h-5" />
-                <span>ส่งข้อความ</span>
+                <span className="relative z-10 flex items-center space-x-2">
+                  <Send className="w-5 h-5" />
+                  <span>ส่งข้อความ</span>
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#ff6b35] to-[#ff4500] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute inset-0 bg-white/20 opacity-0 group-focus:opacity-100 transition-opacity duration-300 rounded-xl blur animate-pulse"></span>
+                <span className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-shimmer"></span>
               </button>
             </form>
           </div>
