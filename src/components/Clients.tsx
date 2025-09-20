@@ -92,70 +92,7 @@ const Clients = () => {
           ))}
         </div>
 
-        <motion.div 
-          className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            <motion.div 
-              className="lg:w-1/2"
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">
-                พันธมิตรที่เชื่อถือได้
-              </h3>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                ตั้งแต่ธุรกิจเริ่มต้นไปจนถึงบริษัทที่จดทะเบียนในตลาดหลักทรัพย์ 
-                เราให้บริการด้วยมาตรฐานเดียวกัน คือ ความเป็นเลิศ
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <motion.div 
-                  className="text-center"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1.0 }}
-                  viewport={{ once: true }}
-                >
-                  <p className="text-3xl font-bold text-[#f57d21]">
-                    <AnimatedCounter target={500} duration={3000} delay={1200} />+
-                  </p>
-                  <p className="text-gray-600">ลูกค้าปัจจุบัน</p>
-                </motion.div>
-                <motion.div 
-                  className="text-center"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1.1 }}
-                  viewport={{ once: true }}
-                >
-                  <p className="text-3xl font-bold text-[#f57d21]">
-                    <AnimatedCounter target={98} duration={3000} delay={1300} />%
-                  </p>
-                  <p className="text-gray-600">อัตราการกลับมาใช้บริการ</p>
-                </motion.div>
-              </div>
-            </motion.div>
-            <motion.div 
-              className="lg:w-1/2"
-              initial={{ x: 50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <img 
-                src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Diverse business clients collaboration" 
-                className="w-full h-[350px] object-cover rounded-2xl shadow-lg"
-              />
-            </motion.div>
-          </div>
-        </motion.div>
+     
       </div>
     </motion.section>
   );

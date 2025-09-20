@@ -81,8 +81,12 @@ const Awards = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-r from-[#f57d21] to-[#f15a29] rounded-full flex items-center justify-center">
-                <span className="text-white text-4xl font-bold">ว</span>
+              <div className="w-48 h-48 mx-auto  ">
+                <img 
+                  src="/images/profile.png" 
+                  alt="คุณ วิลินรัตน์ ยานยา - CEO & ผู้ก่อตั้ง"
+                  className="w-full h-full object-cover e"
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">คุณ วิลินรัตน์ ยานยา</h3>
               <p className="text-[#f57d21] font-semibold">CEO & ผู้ก่อตั้ง</p>
