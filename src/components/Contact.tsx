@@ -29,26 +29,26 @@ const Contact = () => {
     {
       icon: Phone,
       title: "โทรศัพท์",
-      info: "02-123-4567",
-      subInfo: "จันทร์-ศุกร์ 8:00-18:00"
+      info: "089-130-7416",
+      subInfo: "จันทร์-เสาร์ 9:00-18:00"
     },
     {
       icon: Mail,
       title: "อีเมล",
-      info: "info@aaaaccounting.com",
-      subInfo: "ตอบกลับภายใน 24 ชั่วโมง"
+      info: "director@saaccounttax.com",
+      subInfo: "ตอบกลับ ในเวลาทำการ"
     },
     {
       icon: MapPin,
       title: "ที่อยู่",
-      info: "123 ถนนสีลม กรุงเทพฯ",
-      subInfo: "ใกล้ BTS ศาลาแดง"
+      info: " 388/31-32 ถนน ซ. รามคำแหง 53 แขวงพลับพลา วังทองหลาง กรุงเทพ 10310",
+      subInfo: ""
     },
     {
       icon: Clock,
       title: "เวลาทำการ",
-      info: "จันทร์-ศุกร์ 8:00-18:00",
-      subInfo: "เสาร์ 9:00-15:00"
+      info: "จันทร์-เสาร์ 8:00-18:00",
+      subInfo: ""
     }
   ];
 
@@ -91,10 +91,20 @@ const Contact = () => {
                 <p className="text-gray-600 leading-relaxed">
                   📞 <strong>โทรปรึกษาฟรี</strong> ทุกวันจันทร์-ศุกร์ 8:00-18:00
                 </p>
-                <p className="text-gray-600 leading-relaxed">
-                  💬 <strong>Line Official</strong> @aaaaccounting
-                </p>
-                <p className="text-gray-600 leading-relaxed">
+                <div className="flex items-center space-x-4">
+                  <p className="text-gray-600 leading-relaxed">
+                    💬 <strong>Line Official</strong> 
+                  </p>
+                  <a 
+                    href="https://line.me/ti/p/0885770601" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-fit hover:opacity-80 transition-all duration-300 transform hover:scale-105"
+                    aria-label="เพิ่มเพื่อนใน Line"
+                  >
+                    <img src="/images/Line.png" alt="Line" className="w-32 h-auto " />
+                  </a>
+                </div>             <p className="text-gray-600 leading-relaxed">
                   📧 <strong>อีเมลปรึกษา</strong> consulting@aaaaccounting.com
                 </p>
               </div>
