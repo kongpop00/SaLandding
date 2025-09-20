@@ -1,35 +1,22 @@
-import { Award, Trophy, Medal, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Awards = () => {
   const awards = [
     {
-      icon: Trophy,
-      title: "ประสบการณ์ตรงจากกรมสรรพากร",
-      year: "17 ปี",
-      organization: "นักตรวจสอบภาษีชำนาญการ",
-      description: "ความเชี่ยวชาญด้านภาษีระดับผู้เชี่ยวชาญ"
+      title: "ช่วยติดตามผลประกอบการ",
+      description: "วิเคราะห์ผลประกอบการและแจ้งเตือนลูกค้า"
     },
     {
-      icon: Medal,
-      title: "แม่นยำ โปร่งใส เชื่อถือได้",
-      year: "100%",
-      organization: "มาตรฐานการทำงาน",
-      description: "ทำงานอย่างเป็นระบบ ตรวจสอบได้ทุกขั้นตอน"
+      title: "ช่วยจัดทํางบประมาณ",
+      description: "วางแผนควบคุมค่าใช้จ่ายป้องกันปัญหาทางด้านการเงิน"
     },
     {
-      icon: Star,
-      title: "บริการครบวงจรในที่เดียว",
-      year: "All-in-One",
-      organization: "One Stop Service",
-      description: "จดบริษัท ทำบัญชี ส่งงบ วางแผนภาษี ยื่นเอกสารกู้เงิน"
+      title: "เตรียมแผนกู้เงิน",
+      description: "เราช่วยจัดเตรียมเอกสาร วางแผนการกู้เงินกับสถาบัน"
     },
     {
-      icon: Award,
-      title: "ที่ปรึกษาทางการเงิน",
-      year: "Long-term",
-      organization: "Partnership",
-      description: "พร้อมเติบโตไปกับคุณตลอดการเติบโตของธุรกิจ"
+      title: "ช่วยวางแผน CASH FLOW",
+      description: "วิเคราะห์วงจรเงินสด ช่วยติดตามบริหารเงินสด และวางแผนสภาพคล่องทางการเงินเพื่อให้ธุรกิจของคุณ มั่นคงทางด้านการเงิน พร้อมที่จะขยายกิจการได้ในอนาคต"
     }
   ];
 
@@ -127,18 +114,7 @@ const Awards = () => {
               whileHover={{ y: -8 }}
               viewport={{ once: true }}
             >
-              <div className="bg-gradient-to-r from-[#f57d21] to-[#f15a29] p-4 rounded-full w-fit mx-auto mb-6 group-hover:shadow-lg transition-shadow duration-300">
-                <award.icon className="w-10 h-10 text-white" />
-              </div>
-              
-              <div className="mb-4">
-                <span className="bg-[#ffc89c]/50 text-[#f15a29] px-3 py-1 rounded-full text-sm font-semibold">
-                  {award.year}
-                </span>
-              </div>
-              
-              <h3 className="text-lg font-bold text-gray-800 mb-2">{award.title}</h3>
-              <p className="text-sm text-[#f57d21] font-medium mb-3">{award.organization}</p>
+              <h3 className="text-lg font-bold text-[#f57d21] mb-4">{award.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{award.description}</p>
             </motion.div>
           ))}

@@ -27,7 +27,7 @@ const Reviews = () => {
     },
     {
       name: "คุณเสถียร ศรีประศาสตร์",
-      company: "ร้าน Fashion Hub",
+      company: "",
       rating: 5,
       comment: "มั่นใจในการเอาใจใส่จริงๆ",
       image: "/images/review/review4.png"
