@@ -121,17 +121,30 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="text-center">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-              คุณ วิลินรัตน์ ยานยา
-            </h3>
-            <p className="text-lg font-medium mb-6 opacity-90">
-              CEO เอส.เอ.การบัญชีและภาษี | ประสบการณ์ 17 ปี ในตำแหน่ง นักตรวจสอบภาษีชำนาญการ กรมสรรพากร
-            </p>
-            <blockquote className="text-lg lg:text-xl opacity-90 max-w-4xl mx-auto leading-relaxed italic border-l-4 border-white/30 pl-6">
-              "จัดการบัญชีอย่างมืออาชีพ เพื่อธุรกิจที่มั่นคง เรื่องบัญชี เราเชี่ยวชาญ ทุกงานไม่มีพลาด 
-              ให้การเงินและบัญชีของคุณเป็นเรื่องง่าย คิดครบ จบเรื่องบัญชีที่เรา"
-            </blockquote>
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            {/* Profile Image */}
+            <div className="flex-shrink-0">
+              <img 
+                src="/images/profile.jpg" 
+                alt="คุณ วิลินรัตน์ ยานยา - CEO & ผู้ก่อตั้ง"
+                className="w-48 h-64 lg:w-56 lg:h-72 object-cover rounded-2xl shadow-2xl border-4 border-white/20"
+              />
+            </div>
+            
+            {/* Content */}
+            <div className="flex-1 text-center lg:text-left">
+              <h3 className="text-2xl lg:text-3xl font-bold mb-4">
+                คุณ วิลินรัตน์ ยานยา
+              </h3>
+              <p className="text-lg font-medium mb-6 opacity-90">
+                CEO เอส.เอ.การบัญชีและภาษี | ประสบการณ์ 17 ปี ในตำแหน่ง นักตรวจสอบภาษีชำนาญการ กรมสรรพากร
+              </p>
+              <blockquote className="text-lg lg:text-xl opacity-90 leading-relaxed italic border-l-4 border-white/30 pl-6">
+                "ในปัจจุบัน เราบริการลูกค้าด้วยความใส่ใจ ให้คำปรึกษา วิเคราะห์ทางด้านภาษีและงบการเงิน 
+                กับธุรกิจทุกประเภท หากได้รับการสนับสนุนด้านบัญชี-การเงินที่ถูกต้อง จะยิ่งเป็นผลดี เพราะบัญชียังคงเป็นปัจจัยหลักของการดำเนินธุรกิจ ดังนั้น ลูกค้าของเราจึงได้เลือกให้ 
+                เราเป็นผู้ดูแลบัญชีและปิดงบประจำปี เพราะเราคือ 'มืออาชีพ'"
+              </blockquote>
+            </div>
           </div>
         </motion.div>
       </div>

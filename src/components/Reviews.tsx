@@ -5,32 +5,32 @@ import { motion } from 'framer-motion';
 const Reviews = () => {
   const reviews = [
     {
-      name: "คุณสมชาย รุ่งเรือง",
-      company: "บริษัท ABC จำกัด",
+      name: "มาดามหญิง แสนล้าน",
+      company: "",
       rating: 5,
-      comment: "บริการดีมาก ทีมงานมีความเชี่ยวชาญสูง ทำงานละเอียดและตรงเวลาเสมอ ใช้บริการมา 3 ปีแล้ว ประทับใจมาก",
-      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150"
+      comment: "ไว้วางใจที่สุดค่ะไม่มีปัญหาย้อนกลับมาให้ปวดหัวเลย ใครยังมีปัญหาเรื่องภาษี แนะนำบริษัทเอสเอการบัญชีเลยค่ะ",
+      image: "/images/review/review1.png"
     },
     {
-      name: "คุณสุมาลี เจริญผล",
-      company: "ร้าน Sweet Bakery",
+      name: "คุณประวิทย์ มีประวัติ",
+      company: "",
       rating: 5,
-      comment: "ก่อนใช้บริการที่นี่ เรามีปัญหาเรื่องบัญชียุ่งยาก แต่พอมาใช้บริการแล้ว ทุกอย่างเป็นระเบียบ คุ้มค่ามาก",
-      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150"
+      comment: "ผมไว้วางใจ และมั่นใจในทุกเรื่องของบัญชี ให้บริษัทเอส.เอ.การบัญชีจัดการให้ทั้งหมด (มืออาชีพจริงๆ)",
+      image: "/images/review/review2.png"
     },
     {
-      name: "คุณประชา ก้าวหน้า",
-      company: "บริษัท เทคโนโลยี XYZ",
+      name: "ดร.ชาญชัย เจ้ยชุม",
+      company: "",
       rating: 5,
-      comment: "ให้คำปรึกษาดีมาก ช่วยประหยัดภาษีได้เยอะ และยังแนะแนวทางการดำเนินธุรกิจที่ดี แนะนำเลยครับ",
-      image: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150"
+      comment: "ยกให้เป็นนัมเบอร์วัน",
+      image: "/images/review/review3.png"
     },
     {
-      name: "คุณพิมพ์ใจ สร้างสรรค์",
+      name: "คุณเสถียร ศรีประศาสตร์",
       company: "ร้าน Fashion Hub",
       rating: 5,
-      comment: "เป็นมืออาชีพจริงๆ ตอบคำถามได้ทุกเรื่อง ช่วยแก้ปัญหาได้ดี ราคาเหมาะสม บริการยอดเยี่ยม",
-      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150"
+      comment: "มั่นใจในการเอาใจใส่จริงๆ",
+      image: "/images/review/review4.png"
     }
   ];
 
