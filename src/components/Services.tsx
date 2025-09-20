@@ -1,7 +1,23 @@
 import { Calculator, FileText, PieChart, TrendingUp, Building, ClipboardCheck, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const Services = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const serviceImages = [
+    "/images/swevice1.webp",
+    "/images/swevice2.webp"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % serviceImages.length);
+    }, 3000); // เปลี่ยนทุก 3 วินาที
+
+    return () => clearInterval(timer);
+  }, [serviceImages.length]);
+
   const services = [
     {
       icon: Calculator,
@@ -146,11 +162,26 @@ const Services = () => {
               transition={{ duration: 0.6, delay: 1.0 }}
               viewport={{ once: true }}
             >
-              <img 
-                src="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Modern accounting office with technology" 
-                className="w-full h-[300px] object-cover rounded-2xl shadow-lg"
-              />
+              <div className="relative overflow-hidden rounded-2xl shadow-lg h-[300px]">
+                {serviceImages.map((image, index) => (
+                  <motion.img
+                    key={index}
+                    src={image}
+                    alt="Modern accounting office with technology"
+                    className="w-full h-full object-cover absolute inset-0"
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ 
+                      opacity: index === currentImageIndex ? 1 : 0,
+                      scale: index === currentImageIndex ? 1 : 1.1
+                    }}
+                    transition={{ 
+                      duration: 0.8,
+                      ease: "easeInOut"
+                    }}
+                  />
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
             </motion.div>
           </div>
         </motion.div>

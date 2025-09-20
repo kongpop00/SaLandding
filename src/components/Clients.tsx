@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Building2, Truck, ShoppingBag, Utensils, Heart, Cog } from 'lucide-react';
+import { Building2, Truck, ShoppingBag, Utensils, Heart, Globe } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 // Simple counter that works reliably
@@ -42,7 +42,7 @@ const Clients = () => {
     { icon: ShoppingBag, name: "ร้านค้า/ค้าปลีก", count: "120+", countNumber: 120 },
     { icon: Utensils, name: "ร้านอาหาร", count: "90+", countNumber: 90 },
     { icon: Heart, name: "บริการสุขภาพ", count: "45+", countNumber: 45 },
-    { icon: Cog, name: "ผลิตและบริการ", count: "110+", countNumber: 110 }
+    { icon: Globe, name: "ออนไลน์", count: "110+", countNumber: 110 }
   ];
 
   return (

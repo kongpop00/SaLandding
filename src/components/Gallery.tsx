@@ -11,49 +11,49 @@ const Gallery = () => {
       id: 1,
       title: "สำนักงานหลัก",
       description: "พื้นที่ทำงานที่ทันสมัยและเป็นมิตรกับลูกค้า",
-      image: "https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=800"
+      image: "/images/gallery/g1.webp"
     },
     {
       id: 2,
       title: "ห้องประชุมลูกค้า",
       description: "พื้นที่ปรึกษาที่เป็นส่วนตัวและสะดวกสบาย",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+      image: "/images/gallery/g2.webp"
     },
     {
       id: 3,
       title: "ทีมงานมืออาชีพ",
       description: "ทีมผู้เชี่ยวชาญด้านบัญชีและภาษีที่พร้อมให้บริการ",
-      image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800"
+      image: "/images/gallery/g3.webp"
     },
     {
       id: 4,
       title: "การประชุมวางแผนภาษี",
       description: "การวางแผนและให้คำปรึกษาทางการเงินแก่ลูกค้า",
-      image: "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=800"
+      image: "/images/gallery/g4.webp"
     },
     {
       id: 5,
       title: "ระบบบัญชีดิจิทัล",
       description: "เทคโนโลยีที่ทันสมัยสำหรับการจัดการบัญชี",
-      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
+      image: "/images/gallery/g5.jpg"
     },
     {
       id: 6,
       title: "การตรวจสอบเอกสาร",
       description: "ความละเอียดรอบคอบในการตรวจสอบทุกรายละเอียด",
-      image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
+      image: "/images/gallery/g6.webp"
     },
     {
       id: 7,
       title: "พิธีมอบรางวัล",
       description: "รางวัลความเป็นเลิศด้านบริการจากสมาคมนักบัญชี",
-      image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800"
+      image: "/images/gallery/g7.webp"
     },
     {
       id: 8,
       title: "งานสัมมนาภาษี",
       description: "การจัดสัมมนาให้ความรู้ด้านภาษีแก่ลูกค้า",
-      image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800"
+      image: "/images/gallery/g8.webp"
     }
   ];
 

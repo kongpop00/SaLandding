@@ -94,7 +94,7 @@ const About = () => {
           >
             <div className="relative">
               <img 
-                src="https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                src="/images/Office1.webp" 
                 alt="Professional accounting office environment" 
                 className="w-full h-[400px] object-cover rounded-3xl shadow-2xl"
               />
