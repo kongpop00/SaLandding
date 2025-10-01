@@ -106,7 +106,7 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <div className="text-center">
-                  <p className="text-3xl font-bold text-[#f57d21]">15+</p>
+                  <p className="text-3xl font-bold text-[#f57d21]">17+</p>
                   <p className="text-gray-600 font-medium">ปีประสบการณ์</p>
                 </div>
               </motion.div>
