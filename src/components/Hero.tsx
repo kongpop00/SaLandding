@@ -14,7 +14,7 @@ const AnimatedCounter = ({ target, duration = 2000, delay = 0 }: { target: numbe
       setStarted(true);
       
       setTimeout(() => {
-        const increment = target / (duration / 50); // อัพเดตทุก 50ms
+        const increment = target / (duration / 100); // อัพเดตทุก 50ms
         let current = 0;
         
         const timer = setInterval(() => {
@@ -39,22 +39,27 @@ const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    {
-      image: "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=1920",
-      alt: "Professional accounting team working"
+     {
+      image: "/hero/h1.svg",
+      alt: "Custom hero design"
     },
+    // {
+    //   image: "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    //   alt: "Professional accounting team working"
+    // },
+    // {
+    //   image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    //   alt: "Modern office environment"
+    // },
     {
-      image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1920",
-      alt: "Modern office environment"
-    },
-    {
-      image: "https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      image: "/hero/h3.svg",
       alt: "Business consultation meeting"
     },
     {
-      image: "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      image: "/hero/h2.svg",
       alt: "Financial analysis and reporting"
-    }
+    },
+   
   ];
 
   useEffect(() => {
