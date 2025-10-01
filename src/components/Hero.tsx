@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, TrendingUp, Users, Award, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Award, ChevronLeft, ChevronRight, User, Download } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 // Simple counter that works reliably
@@ -70,6 +70,11 @@ const Hero = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleProfileClick = () => {
+    // Navigate to profile page - will be implemented
+    window.location.href = '/profile';
   };
 
   const nextSlide = () => {
@@ -204,6 +209,14 @@ const Hero = () => {
                 className="border-2 border-white text-white px-10 py-5 rounded-full text-xl font-semibold hover:bg-white hover:text-[#f57d21] transition-all duration-300 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/50"
               >
                 ดูบริการ
+              </button>
+              <button 
+                onClick={handleProfileClick}
+                aria-label="ดูโปรไฟล์บริษัท"
+                className="bg-gradient-to-r from-[#f57d21]/80 to-[#f15a29]/80 border-2 border-white/30 text-white px-10 py-5 rounded-full text-xl font-semibold hover:from-[#f57d21] hover:to-[#f15a29] hover:border-white/50 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/50"
+              >
+                <User className="w-6 h-6" />
+                <span>ดู Profile</span>
               </button>
             </motion.div>
 

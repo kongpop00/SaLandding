@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,10 +10,12 @@ import FAQ from './components/FAQ';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Profile from './components/Profile';
 
-function App() {
+// Main landing page component
+const LandingPage = () => {
   return (
-    <div className="min-h-screen">
+    <>
       <Header />
       <main role="main">
         <Hero />
@@ -26,7 +29,20 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </div>
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <div className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
