@@ -7,16 +7,10 @@ import {
   Shield, 
   Users, 
   CheckCircle, 
-  Star,
-  ArrowRight,
-  Phone,
-  Mail,
-  Clock,
-  Award,
   TrendingUp,
-  Banknote,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  ArrowRight
 } from 'lucide-react';
 
 const Services = () => {
@@ -356,11 +350,11 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className={`${service.bgColor} rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}
+              className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
             >
               <div className="flex items-center mb-6">
-                <div className={`p-4 rounded-2xl bg-gradient-to-r ${service.color} shadow-lg`}>
-                  <service.icon className="h-8 w-8 text-white" />
+                <div className={`p-4 rounded-2xl bg-gradient-to-r ${service.color} shadow-md`}>
+                  {React.createElement(service.icon, { className: "h-8 w-8 text-white" })}
                 </div>
                 <div className="ml-4">
                   <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
@@ -384,9 +378,7 @@ const Services = () => {
                  ))}
                </div>
 
-           
-
-            
+        
             </motion.div>
           ))}
         </div>
@@ -399,7 +391,7 @@ const Services = () => {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <div className="relative h-96 rounded-3xl overflow-hidden shadow-2xl">
+          <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
             {serviceImages.map((image, index) => (
               <motion.div
                 key={index}
