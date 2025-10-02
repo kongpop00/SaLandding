@@ -119,7 +119,7 @@ const Awards = () => {
             </motion.div>
           ))}
         </div>
-
+{/* 
         <motion.div 
           className="bg-gradient-to-r from-[#f3e9d7] to-[#ffc89c]/50 rounded-3xl p-8 lg:p-12"
           initial={{ y: 50, opacity: 0 }}
@@ -179,7 +179,7 @@ const Awards = () => {
               />
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.section>
   );

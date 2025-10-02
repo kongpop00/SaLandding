@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calculator, Phone, Mail, MapPin, Facebook, MessageCircle, Instagram } from 'lucide-react';
+import { Calculator, Phone, Mail, MapPin, Facebook, MessageCircle, Instagram, Music } from 'lucide-react';
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -36,6 +36,9 @@ const Footer = () => {
               </div>
               <div className="bg-[#f57d21] p-2 rounded-full hover:bg-[#f15a29] transition-colors duration-200 cursor-pointer">
                 <Instagram className="w-5 h-5" />
+              </div>
+              <div className="bg-[#f57d21] p-2 rounded-full hover:bg-[#f15a29] transition-colors duration-200 cursor-pointer">
+                <Music className="w-5 h-5" />
               </div>
             </div>
           </div>
