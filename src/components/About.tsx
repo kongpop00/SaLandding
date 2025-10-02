@@ -1,7 +1,45 @@
 import { Shield, Users, DollarSign, FileCheck, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 const About = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoVisible, setIsVideoVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && videoRef.current) {
+          // เริ่มเล่นแบบ muted ก่อน แล้วค่อยเปิดเสียง
+          videoRef.current.muted = true;
+          videoRef.current.play().then(() => {
+            console.log('Video started playing');
+            setIsVideoVisible(true);
+            // หลังจากเล่นได้แล้ว ให้เปิดเสียงทันที
+            setTimeout(() => {
+              if (videoRef.current) {
+                videoRef.current.muted = false;
+                console.log('Video unmuted');
+              }
+            }, 500); // รอ 0.5 วินาทีแล้วเปิดเสียง
+          }).catch((error) => {
+            console.error('Video play failed:', error);
+          });
+        }
+      },
+      { 
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const features = [
     {
       icon: Shield,
@@ -64,7 +102,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               {features.map((feature, index) => (
                 <motion.div 
                   key={index}
@@ -93,11 +131,19 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <img 
-                src="/images/Office1.webp" 
-                alt="Professional accounting office environment" 
-                className="w-full h-[400px] object-cover rounded-3xl shadow-2xl"
-              />
+              <video 
+                ref={videoRef}
+                src="/video/video1.mp4"
+                controls
+                loop
+                className="w-full h-[600px] lg:h-[650px] object-cover rounded-3xl shadow-2xl hover:shadow-3xl transition-shadow duration-300"
+                poster="/images/Office1.webp"
+                preload="metadata"
+                onLoadedData={() => console.log('Video loaded')}
+                onCanPlay={() => console.log('Video can play')}
+              >
+                <p className="text-gray-600">เบราว์เซอร์ของคุณไม่รองรับการเล่นวีดีโอ</p>
+              </video>
               <motion.div 
                 className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100"
                 initial={{ scale: 0 }}
