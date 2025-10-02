@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQ = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
+  const [showTikTokIframe, setShowTikTokIframe] = useState<{ [key: number]: boolean }>({});
 
   const toggleItem = (index: number) => {
     setOpenItems(prev => 
@@ -11,6 +12,13 @@ const FAQ = () => {
         ? prev.filter(item => item !== index)
         : [...prev, index]
     );
+  };
+
+  const handleTikTokClick = (index: number) => {
+    setShowTikTokIframe(prev => ({
+      ...prev,
+      [index]: true
+    }));
   };
 
   const faqs = [
@@ -137,19 +145,25 @@ const FAQ = () => {
                                   <div className="bg-white rounded-lg p-3 border border-gray-200">
                                     <p className="text-xs text-gray-500 mb-2">TikTok Video</p>
                                     <div className="w-full">
-                                      <iframe
-                                        src={`https://www.tiktok.com/embed/v2/${faq.video.split('/').pop()}`}
-                                        width="100%"
-                                        height="700"
-                                        frameBorder="0"
-                                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        allowFullScreen
-                                        className="rounded-lg w-full"
-                                        title="TikTok Video"
-                                        loading="lazy"
-                                      ></iframe>
+                                      {/* TikTok Wrapper */}
+                                      <div className="tiktok-wrapper" style={{ position: 'relative', maxWidth: '720px' }}>
+                                        {/* TikTok Container - แสดงทันทีเมื่อเปิด FAQ */}
+                                        <div className="tiktok-container">
+                                          <iframe
+                                            src={`https://www.tiktok.com/embed/v2/${faq.video.split('/').pop()}?autoplay=0&controls=1`}
+                                            width="100%"
+                                            height="600"
+                                            frameBorder="0"
+                                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowFullScreen
+                                            loading="lazy"
+                                            title="TikTok Video"
+                                            style={{ borderRadius: '12px' }}
+                                          />
+                                        </div>
+                                      </div>
                                     </div>
-                                    <p className="text-sm text-gray-600 mt-3">จะลงค่าใช้จ่ายบัญชี ลงอะไรได้บ้าง ที่สรรพากรจะให้ผ่าน</p>
+                                    <p className="text-sm text-gray-600 mt-3">{faq.answer}</p>
                                   </div>
                                   <a 
                                     href={faq.video}
