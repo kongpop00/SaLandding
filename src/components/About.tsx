@@ -1,44 +1,45 @@
-import { Shield, Users, DollarSign, FileCheck, TrendingUp } from 'lucide-react';
+import { Shield, Users, DollarSign, FileCheck, TrendingUp, Play, Pause } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 const About = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoVisible, setIsVideoVisible] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showControls, setShowControls] = useState(true);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && videoRef.current) {
-          // เริ่มเล่นแบบ muted ก่อน แล้วค่อยเปิดเสียง
-          videoRef.current.muted = true;
-          videoRef.current.play().then(() => {
-            console.log('Video started playing');
-            setIsVideoVisible(true);
-            // หลังจากเล่นได้แล้ว ให้เปิดเสียงทันที
-            setTimeout(() => {
-              if (videoRef.current) {
-                videoRef.current.muted = false;
-                console.log('Video unmuted');
-              }
-            }, 500); // รอ 0.5 วินาทีแล้วเปิดเสียง
-          }).catch((error) => {
-            console.error('Video play failed:', error);
-          });
-        }
-      },
-      { 
-        threshold: 0.3,
-        rootMargin: '0px 0px -100px 0px'
-      }
-    );
-
+  // ฟังก์ชันเล่น/หยุดวิดีโอ
+  const togglePlayPause = () => {
     if (videoRef.current) {
-      observer.observe(videoRef.current);
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+        setShowControls(true);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+        setShowControls(false);
+        // แสดงปุ่มหยุดชั่วคราวหลังจากเล่น 2 วินาที
+        setTimeout(() => {
+          setShowControls(true);
+        }, 2000);
+      }
     }
+  };
 
-    return () => observer.disconnect();
-  }, []);
+  // ฟังก์ชันแสดง/ซ่อนปุ่มควบคุม
+  const handleMouseEnter = () => {
+    if (isPlaying) {
+      setShowControls(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isPlaying) {
+      setTimeout(() => {
+        setShowControls(false);
+      }, 1000);
+    }
+  };
 
   const features = [
     {
@@ -124,26 +125,43 @@ const About = () => {
           </motion.div>
 
           <motion.div 
-            className="lg:w-1/2"
+            className="lg:w-1/2 "
             initial={{ x: 50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="relative">
+            <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
               <video 
                 ref={videoRef}
                 src="/video/video1.mp4"
-                controls
-                loop
-                className="w-full h-[600px] lg:h-[650px] object-cover rounded-3xl shadow-2xl hover:shadow-3xl transition-shadow duration-300"
+                className="w-full h-[800px] lg:h-[850px] object-cover rounded-2xl shadow-2xl hover:shadow-3xl transition-shadow duration-300 cursor-pointer"
                 poster="/images/Office1.webp"
                 preload="metadata"
+                onClick={togglePlayPause}
                 onLoadedData={() => console.log('Video loaded')}
                 onCanPlay={() => console.log('Video can play')}
               >
                 <p className="text-gray-600">เบราว์เซอร์ของคุณไม่รองรับการเล่นวีดีโอ</p>
               </video>
+              
+              {/* Play/Pause Button Overlay */}
+              <div 
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                  showControls ? 'opacity-100' : 'opacity-0'
+                } ${!isPlaying ? 'bg-black/30' : ''}`}
+              >
+                <button
+                  onClick={togglePlayPause}
+                  className="bg-white hover:bg-gray-50 text-orange-500 p-6 rounded-full transition-all duration-300 transform hover:scale-110 shadow-xl border-2 border-orange-200"
+                >
+                  {isPlaying ? (
+                    <Pause size={48} className="ml-1 text-orange-500" />
+                  ) : (
+                    <Play size={48} className="ml-1 text-orange-500" />
+                  )}
+                </button>
+              </div>
               <motion.div 
                 className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100"
                 initial={{ scale: 0 }}
