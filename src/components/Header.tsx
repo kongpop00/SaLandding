@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Calculator } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,10 +37,10 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-[#f57d21] to-[#f15a29] p-2 rounded-lg">
-              <Calculator className="w-6 h-6 text-white" />
-            </div>
+          <div className="flex items-center space-x-4">
+         
+              <img src="/LogoSA.png" alt="S.A. Accounting Logo" className="w-16 h-16" />
+           
             <div>
               <h1 className="text-xl font-bold text-gray-800">S.A. Accounting</h1>
               <p className="text-sm text-gray-600">บริษัท เอส.เอ.การบัญชีและภาษี จำกัด</p>
