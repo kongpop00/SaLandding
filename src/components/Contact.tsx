@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,9 @@ const Contact = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -18,11 +22,55 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('ขอบคุณสำหรับการติดต่อ! เราจะตอบกลับภายใน 24 ชั่วโมง');
+    
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // EmailJS configuration from environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is missing. Please check your .env file.');
+      }
+
+      // Send email using EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message,
+          to_name: 'S.A. Accounting',
+        },
+        publicKey
+      );
+
+      setSubmitStatus('success');
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -192,11 +240,13 @@ const Contact = () => {
                   className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200 focus:outline-none"
                 >
                   <option value="">เลือกบริการ</option>
-                  <option value="accounting">จัดทำบัญชี</option>
-                  <option value="tax">ยื่นภาษี</option>
-                  <option value="consulting">ที่ปรึกษาธุรกิจ</option>
-                  <option value="audit">ตรวจสอบบัญชี</option>
-                  <option value="registration">จดทะเบียนบริษัท</option>
+                  <option value="จัดทำบัญชี">จัดทำบัญชี</option>
+                  <option value="ยื่นภาษี">ยื่นภาษี</option>
+                  <option value="ปรึกษาทางบัญชี">ปรึกษาทางบัญชี</option>
+                  <option value="ที่ปรึกษาธุรกิจ">ที่ปรึกษาธุรกิจ</option>
+                  <option value="ตรวจสอบบัญชี">ตรวจสอบบัญชี</option>
+                  <option value="จดทะเบียนบริษัท">จดทะเบียนบริษัท</option>
+                  <option value="อื่นๆ">อื่นๆ (กรุณาระบุในข้อความ)</option>
                 </select>
                 <div id="service-help" className="sr-only">เลือกบริการที่คุณสนใจ</div>
               </div>
@@ -209,23 +259,47 @@ const Contact = () => {
                   onChange={handleInputChange}
                   rows={5}
                   className="w-full p-4 border border-gray-300 rounded-xl focus:border-[#f57d21] focus:ring-2 focus:ring-[#f57d21]/20 transition-all duration-200 resize-none"
-                  placeholder="บอกเราเกี่ยวกับความต้องการของคุณ..."
+                  placeholder="บอกเราเกี่ยวกับความต้องการของคุณ... (หากเลือก 'อื่นๆ' กรุณาระบุบริการที่ต้องการ)"
                   required
                 ></textarea>
               </div>
 
               <button 
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#f57d21] to-[#f15a29] text-white py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 relative overflow-hidden group focus:outline-none focus:ring-4 focus:ring-[#f57d21]/30 focus:scale-105"
+                disabled={isSubmitting}
+                className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 relative overflow-hidden group focus:outline-none focus:ring-4 focus:ring-[#f57d21]/30 focus:scale-105 ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-[#f57d21] to-[#f15a29] text-white hover:shadow-lg transform hover:scale-105'
+                }`}
               >
                 <span className="relative z-10 flex items-center space-x-2">
-                  <Send className="w-5 h-5" />
-                  <span>ส่งข้อความ</span>
+                  <Send className={`w-5 h-5 ${isSubmitting ? 'animate-pulse' : ''}`} />
+                  <span>{isSubmitting ? 'กำลังส่ง...' : 'ส่งข้อความ'}</span>
                 </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-[#ff6b35] to-[#ff4500] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></span>
-                <span className="absolute inset-0 bg-white/20 opacity-0 group-focus:opacity-100 transition-opacity duration-300 rounded-xl blur animate-pulse"></span>
-                <span className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-shimmer"></span>
+                {!isSubmitting && (
+                  <>
+                    <span className="absolute inset-0 bg-gradient-to-r from-[#ff6b35] to-[#ff4500] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300"></span>
+                    <span className="absolute inset-0 bg-white/20 opacity-0 group-focus:opacity-100 transition-opacity duration-300 rounded-xl blur animate-pulse"></span>
+                    <span className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-shimmer"></span>
+                  </>
+                )}
               </button>
+
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-xl">
+                  <p className="font-semibold">✅ ส่งข้อความสำเร็จ!</p>
+                  <p>ขอบคุณสำหรับข้อความของคุณ เราจะติดต่อกลับโดยเร็วที่สุด</p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-xl">
+                  <p className="font-semibold">❌ เกิดข้อผิดพลาด</p>
+                  <p>ไม่สามารถส่งข้อความได้ กรุณาลองใหม่อีกครั้ง หรือติดต่อเราทางโทรศัพท์</p>
+                </div>
+              )}
             </form>
           </div>
         </div>
