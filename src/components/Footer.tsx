@@ -1,5 +1,16 @@
 import React from 'react';
-import { Calculator, Phone, Mail, MapPin, Facebook, MessageCircle, Instagram, Music } from 'lucide-react';
+import { Calculator, Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+
+// TikTok Icon Component
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg 
+    className={className} 
+    viewBox="0 0 24 24" 
+    fill="currentColor"
+  >
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.04-.1z"/>
+  </svg>
+);
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -15,7 +26,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-6">
             <div className="flex items-center space-x-2">
-               <img src="/LogoSA.png" alt="S.A. Accounting Logo" className="w-16 h-16" />
+               <img src="/LogoSA.png" alt="S.A. Accounting - สำนักงานบัญชีมืออาชีพ บริการบัญชีและภาษีครบวงจร" className="w-16 h-16" />
               <div>
                 <h3 className="text-xl font-bold">S.A. Accounting</h3>
                 <p className="text-gray-400">บริษัท เอส.เอ.การบัญชีและภาษี จำกัด</p>
@@ -34,15 +45,22 @@ const Footer = () => {
               >
                 <Facebook className="w-5 h-5" />
               </a>
-              <div className="bg-[#f57d21] p-2 rounded-full hover:bg-[#f15a29] transition-colors duration-200 cursor-pointer">
-                <MessageCircle className="w-5 h-5" />
-              </div>
-              <div className="bg-[#f57d21] p-2 rounded-full hover:bg-[#f15a29] transition-colors duration-200 cursor-pointer">
-                <Instagram className="w-5 h-5" />
-              </div>
-              <div className="bg-[#f57d21] p-2 rounded-full hover:bg-[#f15a29] transition-colors duration-200 cursor-pointer">
-                <Music className="w-5 h-5" />
-              </div>
+              <a 
+                href="https://www.tiktok.com/@sasa.accounting" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-[#f57d21] p-2 rounded-full hover:bg-[#f15a29] transition-colors duration-200 cursor-pointer inline-block"
+              >
+                <TikTokIcon className="w-5 h-5" />
+              </a>
+                  {/* <a 
+                    href="https://www.tiktok.com/@sasa.accounting" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-[#f57d21] p-2 rounded-full hover:bg-[#f15a29] transition-colors duration-200 cursor-pointer inline-block"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </a> */}
             </div>
           </div>
 

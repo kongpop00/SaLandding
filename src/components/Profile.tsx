@@ -57,7 +57,7 @@ export default function Profile() {
             <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
               <img
                 src={imageSrc}
-                alt={`Profile ${index + 1}`}
+                alt={`โปรไฟล์บริษัท S.A. Accounting หน้า ${index + 1} - แสดงข้อมูลบริการบัญชีและภาษี ประสบการณ์ และผลงาน`}
                 className="w-full h-auto object-contain"
                 loading="lazy"
               />

@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sa-accounting.com/sitemap.xml
+
+# Disallow crawling of admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.env
+Disallow: /node_modules/
+
+# Allow crawling of important pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /awards
+Allow: /clients
+Allow: /reviews
+Allow: /gallery
+Allow: /contact
+Allow: /faq
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1

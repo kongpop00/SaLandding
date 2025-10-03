@@ -73,7 +73,7 @@ const About = () => {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 py-20">
         <motion.div 
           className="text-center mb-16"
           initial={{ y: 50, opacity: 0 }}
@@ -82,8 +82,11 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-            <span className="text-[#f57d21]">บริษัท เอส.เอ.การบัญชีและภาษี จำกัด</span>
+            เกี่ยวกับ<span className="text-[#f57d21]">เรา</span>
           </h2>
+          <h3 className="text-2xl lg:text-3xl font-semibold text-gray-700 mb-6">
+            <span className="text-[#f57d21]">บริษัท เอส.เอ.การบัญชีและภาษี จำกัด</span>
+          </h3>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
             <span className="font-semibold text-[#f57d21]">ก่อตั้งขึ้นเมื่อวันที่ 1 พฤศจิกายน 2560</span> โดยมีวัตถุประสงค์ประกอบธุรกิจเกี่ยวกับบัญชี การทำบัญชีและการตรวจสอบบัญชี การให้คำปรึกษาด้านภาษี ออกแบบจัดทำตรายางพร้อมจดบริษัท ช่วยติดตามวิเคราะห์ผลประกอบการ การจัดทำงบประมาณและเตรียมเอกสารเพื่อใช้กู้เงินกับทางสถาบันการเงิน รวมไปถึงการวิเคราะห์วางแผนสภาพคล่องทางการเงิน
           </p>
@@ -91,7 +94,7 @@ const About = () => {
             <span className="font-semibold">ก่อตั้งโดยผู้เชี่ยวชาญที่มีประสบการณ์ตรงจากกรมสรรพากร</span> และมีความชำนาญในสายงานบัญชีและการวางแผนภาษีมากกว่า 10 ปี
           </p>
           <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            บริษัทจึงมุ่งมั่นที่จะให้บริการที่ <span className="text-[#f57d21] font-semibold">"แม่นยำ โปร่งใส ถูกต้องตามกฎหมาย และเข้าใจง่าย"</span>
+            บริษัทจึงมุ่งมั่นที่จะให้บริการที่ <span className="text-[#f57d21] font-semibold">"แม่นยำ โปร่งใส ถูกต้องตามกฎหมาย และเข้าง่าย"</span>
           </p>
         </motion.div>
 

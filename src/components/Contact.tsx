@@ -303,7 +303,43 @@ const Contact = () => {
             </form>
           </div>
         </div>
+             {/* Google Maps Section - ปรับให้เล็กลงและสวยขึ้น */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center space-x-2">
+                <MapPin className="w-5 h-5 text-[#f57d21]" />
+                <span>ตำแหน่งสำนักงาน</span>
+              </h3>
+              <div className="rounded-xl overflow-hidden shadow-md">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62027.661177344184!2d100.50928637835776!3d13.674246393619097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29fd32a7cd837%3A0xc62905fbfeee2629!2z4Lia4Lij4Li04Lip4Lix4LiXIOC5gOC4reC4qi7guYDguK0u4LiB4Liy4Lij4Lia4Lix4LiN4LiK4Li14LmB4Lil4Liw4Lig4Liy4Lip4Li1IOC4iOC4s-C4geC4seC4lCAo4Liq4Liz4LiZ4Lix4LiB4LiH4Liy4LiZ4LmD4Lir4LiN4LmIKQ!5e0!3m2!1sen!2sth!4v1759506166332!5m2!1sen!2sth" 
+                  width="100%" 
+                  height="280" 
+                  style={{border:0}} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="แผนที่ตำแหน่งสำนักงานบัญชี S.A. Accounting"
+                  className="w-full"
+                ></iframe>
+              </div>
+              <div className="mt-3 p-3 bg-gradient-to-r from-gray-50 to-orange-50 rounded-lg border-l-4 border-[#f57d21]">
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  <strong className="text-[#f57d21]">📍 ที่อยู่:</strong> 388/31-32 ซ. รามคำแหง 53 แขวงพลับพลา วังทองหลาง กรุงเทพ 10310
+                </p>
+                <div className="flex items-center space-x-4 mt-2 text-xs text-gray-600">
+                  <span className="flex items-center space-x-1">
+                    <span>🚗</span>
+                    <span>ที่จอดรถสะดวก</span>
+                  </span>
+                  <span className="flex items-center space-x-1">
+                    <span>🚇</span>
+                    <span>ใกล้ BTS รามคำแหง</span>
+                  </span>
+                </div>
+              </div>
+            </div>
       </div>
+      
     </section>
   );
 };

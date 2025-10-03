@@ -43,6 +43,12 @@ const Services = () => {
     '/images/s3.jpg'
   ];
 
+  const serviceImageAlts = [
+    'บริการจัดทำบัญชีและภาษี - ทีมงานมืออาชีพ S.A. Accounting',
+    'บริการตรวจสอบบัญชีและวางแผนภาษี - สำนักงานบัญชี S.A.',
+    'บริการจดทะเบียนธุรกิจและที่ปรึกษาทางการเงิน - S.A. Accounting'
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
@@ -405,7 +411,7 @@ const Services = () => {
               >
                 <img
                   src={image}
-                  alt={`บริการด้านบัญชี ${index + 1}`}
+                  alt={serviceImageAlts[index]}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
