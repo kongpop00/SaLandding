@@ -150,7 +150,7 @@ const Contact = () => {
                     className="w-fit hover:opacity-80 transition-all duration-300 transform hover:scale-105"
                     aria-label="เพิ่มเพื่อนใน Line"
                   >
-                    <img src="/images/Line.png" alt="Line" className="w-32 h-auto " />
+                    <img src="/images/Line.png" alt="Line Official Account - ติดต่อสำนักงานบัญชี S.A. Accounting" className="w-32 h-auto " />
                   </a>
                 </div>             <p className="text-gray-600 leading-relaxed">
                   📧 <strong>อีเมลปรึกษา</strong> consulting@aaaaccounting.com
@@ -304,7 +304,7 @@ const Contact = () => {
           </div>
         </div>
              {/* Google Maps Section - ปรับให้เล็กลงและสวยขึ้น */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
+            <div className="bg-white p-6 rounded-2xl shadow-lg mt-4">
               <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center space-x-2">
                 <MapPin className="w-5 h-5 text-[#f57d21]" />
                 <span>ตำแหน่งสำนักงาน</span>
